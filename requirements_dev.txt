@@ -1,0 +1,7 @@
+torch
+paddleocr 
+paddlepaddle
+PyMuPDF
+streamlit
+pandas
+-e .
