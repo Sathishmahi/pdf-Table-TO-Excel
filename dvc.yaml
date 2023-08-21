@@ -1,12 +1,5 @@
 stages:
 
-  upload_pdf:
-    cmd: streamlit run --server.port=8501 app.py & npx localtunnel -p 8501
-    deps: 
-      - app.py
-    # outs:
-    #   - artifact/pdf_saver/raw.pdf
-  
   pdf_images:
     cmd: python src/pdf_to_table/components/pdf_saver.py
     deps: 

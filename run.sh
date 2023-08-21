@@ -1,0 +1,1 @@
+streamlit run --server.port=8501 app.py & npx localtunnel -p 8501
