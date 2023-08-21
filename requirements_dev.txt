@@ -4,4 +4,7 @@ paddlepaddle
 PyMuPDF
 streamlit
 pandas
+pyyaml
+wget
+dvc
 -e .

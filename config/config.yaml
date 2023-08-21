@@ -1,0 +1,14 @@
+artifact:
+  root_dir: artifact
+
+layout_parser:
+  root_dir: layout_parser
+  whl_url: https://paddleocr.bj.bcebos.com/whl/layoutparser-0.0.0-py3-none-any.whl
+  file_name: layout_parser.whl
+
+pdf_saver:
+  root_dir: pdf_saver
+  file_name: raw.pdf
+  images_dir_name: images
+
+

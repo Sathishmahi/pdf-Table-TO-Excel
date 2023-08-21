@@ -1,0 +1,9 @@
+schema: '2.0'
+stages:
+  upload_pdf:
+    cmd: python app.py
+    deps:
+    - path: app.py
+      hash: md5
+      md5: c502017fe31044a96b4f285a5edfbf43
+      size: 360
