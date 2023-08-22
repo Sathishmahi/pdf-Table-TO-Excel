@@ -1,0 +1,15 @@
+torch
+paddleocr 
+paddlepaddle
+PyMuPDF
+streamlit
+pandas
+pyyaml
+wget
+dvc
+xlsxwriter
+# tox
+# pytest
+# flake8
+# black
+-e .

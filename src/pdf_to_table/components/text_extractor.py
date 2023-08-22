@@ -34,9 +34,9 @@ class TextExtractor:
 
         # Check if the images directory is empty
         if not os.listdir(images_dir_name):
-            e = Exception(f" images dir empty {images_dir_name}  ")
-            logging.exception(e)
-            raise e
+            msg = f" table dir are empty {images_dir_name} "
+            logging.info(msg)
+            return 
         try:
             for i, img in tqdm(enumerate(os.listdir(images_dir_name)), desc="text extract"):
                 imarr = cv2.imread(os.path.join(images_dir_name, img))
@@ -121,9 +121,10 @@ class TextExtractor:
                 if x1 >= key[0] and x1 <= key[1]:
                     text = pt[1][0]
                     final_dict[val].append(text)
+                    break
         return final_dict
 
-    def excel_writer(self, csv_dir_name: str, excel_file_name: str) -> None:
+    def excel_writer(self, csv_dir_name: str, excel_file_name: str,ther: float = 0.8) -> None:
         """
         Write CSV files to an Excel file.
 
@@ -138,11 +139,13 @@ class TextExtractor:
         for idx, csv in enumerate(os.listdir(csv_dir_name)):
             fn = os.path.join(csv_dir_name, csv)
             df = pd.read_csv(fn)
+            all_rm_col = [col for col in df.columns if df[col].isna().sum()/len(df)>=ther]
+            df.drop(columns = all_rm_col,inplace = True)
             df.to_excel(writer, f"sheet_{idx}",index = False)
         writer.save()
 
 if __name__ == "__main__":
     print(f"  >>>>>>>>  START   {STAGE_NAME}   >>>>>>>>")
     text_extractor = TextExtractor()
-    text_extractor.get_text_bboxs(15)
+    text_extractor.get_text_bboxs(5)
     print(f"  >>>>>>>>  END   {STAGE_NAME}   >>>>>>>>")

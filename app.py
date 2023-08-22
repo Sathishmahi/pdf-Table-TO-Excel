@@ -15,6 +15,7 @@ if uploaded_file is not None:
 #         zip_data = f.read()
 #         st.download_button(label="Download Zip File", data=zip_data, file_name='downloaded_files.zip', key='zip')
 
-result = subprocess.run(command, shell=True, capture_output=True, text=True)
+result = subprocess.run("dvc repro", shell=True, capture_output=True, text=True)
 if result.returncode:
+    print("DONE")
     # for

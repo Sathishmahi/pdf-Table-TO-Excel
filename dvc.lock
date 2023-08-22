@@ -17,8 +17,8 @@ stages:
     deps:
     - path: artifact/pdf_saver/raw.pdf
       hash: md5
-      md5: d539eed4de62447acabc6094351159a7
-      size: 50300
+      md5: 29b59c27219c14d467b1f138ef30fb5e
+      size: 571192
     - path: src/pdf_to_table/components/pdf_saver.py
       hash: md5
       md5: c2855c8f5176c8b43a3328a81bfb3234
@@ -26,17 +26,17 @@ stages:
     outs:
     - path: artifact/pdf_saver/images
       hash: md5
-      md5: 23cd3666ff3ae50b094b05083c032fd5.dir
-      size: 874083
-      nfiles: 20
+      md5: e350fe1077a43c9b0c8672e13421ec53.dir
+      size: 3146197
+      nfiles: 26
   table_detector:
     cmd: python src/pdf_to_table/components/table_detector.py
     deps:
     - path: artifact/pdf_saver/images
       hash: md5
-      md5: 23cd3666ff3ae50b094b05083c032fd5.dir
-      size: 874083
-      nfiles: 20
+      md5: 1d5e80f6d696a4dff412e455dc57ee48.dir
+      size: 3520812
+      nfiles: 43
     - path: src/pdf_to_table/components/table_detector.py
       hash: md5
       md5: 85de558b39d94b7e3bdd9b5056e9ef6e
@@ -44,6 +44,24 @@ stages:
     outs:
     - path: artifact/teble_detector
       hash: md5
-      md5: 34621689e500b206e00f5c4480fce9a7.dir
-      size: 1436128
-      nfiles: 20
+      md5: ae9558d751e93cc4c9023b3fa046d498.dir
+      size: 3709
+      nfiles: 1
+  text_extractor:
+    cmd: python src/pdf_to_table/components/text_extractor.py
+    deps:
+    - path: artifact/teble_detector
+      hash: md5
+      md5: ae9558d751e93cc4c9023b3fa046d498.dir
+      size: 3709
+      nfiles: 1
+    - path: src/pdf_to_table/components/text_extractor.py
+      hash: md5
+      md5: 1f07c63c0b0d6a0694afe56875120304
+      size: 5575
+    outs:
+    - path: artifact/text_extractor
+      hash: md5
+      md5: 623b80bc0627de55b1276bdac8f31994.dir
+      size: 5442
+      nfiles: 2
