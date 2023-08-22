@@ -13,8 +13,16 @@ CURRENT_TIME_STAMP = time.asctime().replace(" ", "_").replace(":", "_")
 LOGGING_FILE_NAME = f"runing_logs_{CURRENT_TIME_STAMP}.log"
 
 
-LAYOUT_PARSER_MODEL_CLASS_DICT = {0: "Text", 1: "Title", 2: "List", 3: "Table", 4: "Figure"}
-LAYOUT_PARSER_MODEL_CONFIG_PATH = "lp://PubLayNet/ppyolov2_r50vd_dcn_365e_publaynet/config"
+LAYOUT_PARSER_MODEL_CLASS_DICT = {
+    0: "Text",
+    1: "Title",
+    2: "List",
+    3: "Table",
+    4: "Figure",
+}
+LAYOUT_PARSER_MODEL_CONFIG_PATH = (
+    "lp://PubLayNet/ppyolov2_r50vd_dcn_365e_publaynet/config"
+)
 
 
 @dataclass(frozen=True)
@@ -52,9 +60,10 @@ class LayoutParserKey:
     LAYOUTPARSER_ROOT_DIR_KEY: str = "root_dir"
     LAYOUTPARSER_WHL_URL_KEY: str = "whl_url"
 
+
 @dataclass(frozen=True)
 class TableDetectorParamsKeys:
-    PARAM_ROOT_KEY:str = "layout_model_params"
-    PARAM_ENFORCE_CPU_KEY:str = "enforce_cpu"
-    PARAM_ENALE_MKLDNN_KEY:str = "enable_mkldnn"
-    PARAM_THERSOLD_KEY:str = "threshold"
+    PARAM_ROOT_KEY: str = "layout_model_params"
+    PARAM_ENFORCE_CPU_KEY: str = "enforce_cpu"
+    PARAM_ENALE_MKLDNN_KEY: str = "enable_mkldnn"
+    PARAM_THERSOLD_KEY: str = "threshold"

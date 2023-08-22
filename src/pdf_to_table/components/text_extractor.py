@@ -36,9 +36,11 @@ class TextExtractor:
         if not os.listdir(images_dir_name):
             msg = f" table dir are empty {images_dir_name} "
             logging.info(msg)
-            return 
+            return
         try:
-            for i, img in tqdm(enumerate(os.listdir(images_dir_name)), desc="text extract"):
+            for i, img in tqdm(
+                enumerate(os.listdir(images_dir_name)), desc="text extract"
+            ):
                 imarr = cv2.imread(os.path.join(images_dir_name, img))
                 imarr = cv2.cvtColor(imarr, cv2.COLOR_BGR2RGB)
                 result = model.ocr(imarr)
@@ -124,7 +126,9 @@ class TextExtractor:
                     break
         return final_dict
 
-    def excel_writer(self, csv_dir_name: str, excel_file_name: str,ther: float = 0.8) -> None:
+    def excel_writer(
+        self, csv_dir_name: str, excel_file_name: str, ther: float = 0.8
+    ) -> None:
         """
         Write CSV files to an Excel file.
 
@@ -139,10 +143,13 @@ class TextExtractor:
         for idx, csv in enumerate(os.listdir(csv_dir_name)):
             fn = os.path.join(csv_dir_name, csv)
             df = pd.read_csv(fn)
-            all_rm_col = [col for col in df.columns if df[col].isna().sum()/len(df)>=ther]
-            df.drop(columns = all_rm_col,inplace = True)
-            df.to_excel(writer, f"sheet_{idx}",index = False)
+            all_rm_col = [
+                col for col in df.columns if df[col].isna().sum() / len(df) >= ther
+            ]
+            df.drop(columns=all_rm_col, inplace=True)
+            df.to_excel(writer, f"sheet_{idx}", index=False)
         writer.save()
+
 
 if __name__ == "__main__":
     print(f"  >>>>>>>>  START   {STAGE_NAME}   >>>>>>>>")

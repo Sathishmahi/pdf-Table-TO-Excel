@@ -1,4 +1,3 @@
-
 # Import necessary libraries and modules
 import os
 import subprocess
@@ -12,6 +11,7 @@ STAGE_NAME = "LAYOUT PARSER DOWNLOAD"
 
 # Get the layout configuration from the Configuration class
 layout_config = Configuration().get_layout_config()
+
 
 # Define a function to download and install the Layout Parser library
 def to_download_layout_parser(layout_config: LayoutParserConfig = layout_config):
@@ -38,6 +38,7 @@ def to_download_layout_parser(layout_config: LayoutParserConfig = layout_config)
         # Log any exceptions and re-raise them
         logging.exception(e)
         raise e
+
 
 if __name__ == "__main__":
     # Print a start message

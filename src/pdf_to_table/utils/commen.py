@@ -24,14 +24,13 @@
 #     return content
 
 
-
-
 # Import necessary libraries and modules
 import os
 import yaml
 from pathlib import Path
 from pdf_to_table import logging
 from pdf_to_table.constant import CONFIG_YAML_FILE_PATH
+
 
 # Define a function to create directories
 def make_dirs(dir_list: Path) -> None:
@@ -48,6 +47,7 @@ def make_dirs(dir_list: Path) -> None:
     except Exception as e:
         logging.exception(e)  # Log any exceptions that occur
         raise e
+
 
 # Define a function to read YAML files
 def read_yaml(yaml_file_path: Path = CONFIG_YAML_FILE_PATH) -> dict:

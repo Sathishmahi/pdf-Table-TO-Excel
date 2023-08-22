@@ -7,14 +7,14 @@ from pdf_to_table.constant import (
     LayoutParserKey,
     PdfSaverKey,
     TableDetectorKey,
-    TableDetectorParamsKeys
+    TableDetectorParamsKeys,
 )
 from pdf_to_table.entity import (
     LayoutParserConfig,
     PdfSaverConfig,
     TableDetectorConfig,
     TextExtractorConfig,
-    TableDetectorParamsConfig
+    TableDetectorParamsConfig,
 )
 import os
 
@@ -22,21 +22,21 @@ import os
 class Configuration:
     def __init__(self):
         self.config_content = read_yaml()
-        print(PARMS_YAML_FILE_PATH)
         self.parmas_config_content = read_yaml(PARMS_YAML_FILE_PATH)
-        print(self.parmas_config_content)
         artifact_content = ArtifactsKey.ARTIFACTS_ROOT_KEY
         self.artifact_dir_name = self.config_content.get(artifact_content).get(
             ArtifactsKey.ARTIFACTS_ROOT_DIR_KEY
         )
         make_dirs([Path(self.artifact_dir_name)])
 
-
-    def get_table_detector_params_config(self)->TableDetectorParamsConfig:
-
-        params_content = self.parmas_config_content.get(TableDetectorParamsKeys.PARAM_ROOT_KEY)
+    def get_table_detector_params_config(self) -> TableDetectorParamsConfig:
+        params_content = self.parmas_config_content.get(
+            TableDetectorParamsKeys.PARAM_ROOT_KEY
+        )
         enforce_cpu = params_content.get(TableDetectorParamsKeys.PARAM_ENFORCE_CPU_KEY)
-        enable_mkldnn = params_content.get(TableDetectorParamsKeys.PARAM_ENALE_MKLDNN_KEY)
+        enable_mkldnn = params_content.get(
+            TableDetectorParamsKeys.PARAM_ENALE_MKLDNN_KEY
+        )
         threshold = params_content.get(TableDetectorParamsKeys.PARAM_THERSOLD_KEY)
         return TableDetectorParamsConfig(enforce_cpu, enable_mkldnn, threshold)
 

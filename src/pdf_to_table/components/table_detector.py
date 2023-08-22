@@ -1,4 +1,3 @@
-
 # Import necessary libraries and modules
 import os
 import uuid
@@ -10,11 +9,15 @@ import layoutparser as lp
 from pdf_to_table import logging
 from pdf_to_table.config import Configuration
 from pdf_to_table.entity import TableDetectorConfig
-from pdf_to_table.constant import LAYOUT_PARSER_MODEL_CLASS_DICT, LAYOUT_PARSER_MODEL_CONFIG_PATH
+from pdf_to_table.constant import (
+    LAYOUT_PARSER_MODEL_CLASS_DICT,
+    LAYOUT_PARSER_MODEL_CONFIG_PATH,
+)
 from pdf_to_table.utils import read_yaml
 
 # Define a constant for the stage name
 STAGE_NAME = "TABLE DETECTOR"
+
 
 # Define the TableDetector class
 class TableDetector:
@@ -27,7 +30,9 @@ class TableDetector:
         """
         # Get configuration settings
         self.table_detector_config = configuration.get_table_detector_config()
-        self.table_detector_params_config = configuration.get_table_detector_params_config()
+        self.table_detector_params_config = (
+            configuration.get_table_detector_params_config()
+        )
 
         # Load layout parser model with specified parameters
         self.model = lp.PaddleDetectionLayoutModel(
@@ -60,12 +65,15 @@ class TableDetector:
 
             # Iterate through detected blocks in the layout
             for blk in layout.to_dict()["blocks"]:
-                p1, p2 = (int(blk["x_1"]), int(blk["y_1"])), (int(blk["x_2"]), int(blk["y_2"]))
+                p1, p2 = (int(blk["x_1"]), int(blk["y_1"])), (
+                    int(blk["x_2"]),
+                    int(blk["y_2"]),
+                )
                 typ = blk["type"]
 
                 if typ == "Table":
                     # Crop the table from the image
-                    crop_img = imarr[p1[0] : p2[0], p1[1] : p2[1],:]
+                    crop_img = imarr[p1[0] : p2[0], p1[1] : p2[1], :]
 
                     # Generate a unique file name for the table image
                     file_path = os.path.join(table_imgs_dir_name, f"{uuid.uuid1()}.png")
@@ -75,6 +83,7 @@ class TableDetector:
 
         # Return 0 if the images directory is empty, else return 1
         return 0 if not os.listdir(images_dir_name) else 1
+
 
 if __name__ == "__main__":
     # Print a start message
