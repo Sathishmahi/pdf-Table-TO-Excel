@@ -8,4 +8,8 @@ pyyaml
 wget
 dvc
 xlsxwriter
+tox
+pytest
+flake8
+black
 -e .

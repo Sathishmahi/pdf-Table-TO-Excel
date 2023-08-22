@@ -18,3 +18,11 @@ TextExtractorConfig = namedtuple(
 TableDetectorConfig = namedtuple(
     "TableDetectorConfig", ["root_dir", "table_imgs_dir_name", "images_dir_name"]
 )
+
+TableDetectorParamsConfig = namedtuple('TableDetectorParamsConfig', 
+                            [
+                                "enforce_cpu",
+                                "enable_mkldnn",
+                                "threshold"
+                                ]
+                            )

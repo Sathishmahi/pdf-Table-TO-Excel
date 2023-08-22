@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/pdf_to_table/components/layoutparaser.py
       hash: md5
-      md5: 8edc2125ed5cb298784e598ee8d758ed
-      size: 684
+      md5: 9ee9f97aa394235e65374fb925120ce8
+      size: 2816
     outs:
     - path: artifact/layout_parser/layoutparser-0.0.0-py3-none-any.whl
       hash: md5
@@ -21,8 +21,8 @@ stages:
       size: 50300
     - path: src/pdf_to_table/components/pdf_saver.py
       hash: md5
-      md5: b8c7e6ca4dfddf2c9210a0636859247d
-      size: 1060
+      md5: c2855c8f5176c8b43a3328a81bfb3234
+      size: 3294
     outs:
     - path: artifact/pdf_saver/images
       hash: md5
@@ -39,11 +39,11 @@ stages:
       nfiles: 20
     - path: src/pdf_to_table/components/table_detector.py
       hash: md5
-      md5: eee0a7f5641132fc6876086c12372b43
-      size: 1936
+      md5: 85de558b39d94b7e3bdd9b5056e9ef6e
+      size: 6087
     outs:
     - path: artifact/teble_detector
       hash: md5
-      md5: 8a3e51dfa902b6f1b592d0defca9647c.dir
+      md5: 34621689e500b206e00f5c4480fce9a7.dir
       size: 1436128
       nfiles: 20

@@ -26,12 +26,12 @@ stages:
     outs: 
       - artifact/teble_detector
 
-  table_extractor:
+  text_extractor:
     cmd: python src/pdf_to_table/components/text_extractor.py
     deps: 
       - src/pdf_to_table/components/text_extractor.py
       - artifact/teble_detector
     outs: 
-      - artifact/teble_detector
+      - artifact/text_extractor
 
   

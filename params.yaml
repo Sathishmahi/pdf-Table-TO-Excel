@@ -1,0 +1,4 @@
+layout_model_params:
+  enforce_cpu: True
+  enable_mkldnn: True
+  threshold: 0.5
