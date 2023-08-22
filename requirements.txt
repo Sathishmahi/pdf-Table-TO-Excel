@@ -3,7 +3,7 @@ paddleocr
 paddlepaddle
 PyMuPDF
 streamlit
-pandas
+pandas==1.5.3 
 pyyaml
 wget
 dvc
