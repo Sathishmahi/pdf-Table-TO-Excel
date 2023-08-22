@@ -167,3 +167,5 @@ cython_debug/
 node_modules/
 package*.json
 artifact/
+src/pdf_to_table/notebooks/out/
+src/pdf_to_table/notebooks/*.zip

@@ -1,9 +1,49 @@
 schema: '2.0'
 stages:
-  upload_pdf:
-    cmd: python app.py
+  layout_parser:
+    cmd: python src/pdf_to_table/components/layoutparaser.py
     deps:
-    - path: app.py
+    - path: src/pdf_to_table/components/layoutparaser.py
       hash: md5
-      md5: c502017fe31044a96b4f285a5edfbf43
-      size: 360
+      md5: 8edc2125ed5cb298784e598ee8d758ed
+      size: 684
+    outs:
+    - path: artifact/layout_parser/layoutparser-0.0.0-py3-none-any.whl
+      hash: md5
+      md5: 5e8cf4166581576fa5331ef99fcb255b
+      size: 19145360
+  pdf_saver:
+    cmd: python src/pdf_to_table/components/pdf_saver.py
+    deps:
+    - path: artifact/pdf_saver/raw.pdf
+      hash: md5
+      md5: d539eed4de62447acabc6094351159a7
+      size: 50300
+    - path: src/pdf_to_table/components/pdf_saver.py
+      hash: md5
+      md5: b8c7e6ca4dfddf2c9210a0636859247d
+      size: 1060
+    outs:
+    - path: artifact/pdf_saver/images
+      hash: md5
+      md5: 23cd3666ff3ae50b094b05083c032fd5.dir
+      size: 874083
+      nfiles: 20
+  table_detector:
+    cmd: python src/pdf_to_table/components/table_detector.py
+    deps:
+    - path: artifact/pdf_saver/images
+      hash: md5
+      md5: 23cd3666ff3ae50b094b05083c032fd5.dir
+      size: 874083
+      nfiles: 20
+    - path: src/pdf_to_table/components/table_detector.py
+      hash: md5
+      md5: eee0a7f5641132fc6876086c12372b43
+      size: 1936
+    outs:
+    - path: artifact/teble_detector
+      hash: md5
+      md5: 8a3e51dfa902b6f1b592d0defca9647c.dir
+      size: 1436128
+      nfiles: 20

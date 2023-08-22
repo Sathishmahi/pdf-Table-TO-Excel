@@ -1,8 +1,37 @@
 stages:
 
-  pdf_images:
+  layout_parser:
+    cmd: python src/pdf_to_table/components/layoutparaser.py
+    deps: 
+      - src/pdf_to_table/components/layoutparaser.py
+    outs: 
+      - artifact/layout_parser/layoutparser-0.0.0-py3-none-any.whl
+  
+  pdf_saver:
     cmd: python src/pdf_to_table/components/pdf_saver.py
     deps: 
+      
+      - src/pdf_to_table/components/pdf_saver.py
       - artifact/pdf_saver/raw.pdf
+      
     outs: 
+      # - artifact/pdf_saver
       - artifact/pdf_saver/images
+
+  table_detector:
+    cmd: python src/pdf_to_table/components/table_detector.py
+    deps: 
+      - src/pdf_to_table/components/table_detector.py
+      - artifact/pdf_saver/images
+    outs: 
+      - artifact/teble_detector
+
+  table_extractor:
+    cmd: python src/pdf_to_table/components/text_extractor.py
+    deps: 
+      - src/pdf_to_table/components/text_extractor.py
+      - artifact/teble_detector
+    outs: 
+      - artifact/teble_detector
+
+  
