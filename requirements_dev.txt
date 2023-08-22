@@ -7,4 +7,5 @@ pandas
 pyyaml
 wget
 dvc
+xlsxwriter
 -e .
