@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/pdf_to_table/components/layoutparaser.py
       hash: md5
-      md5: 9ee9f97aa394235e65374fb925120ce8
-      size: 2816
+      md5: 036f53b5f75446af100b563c13c9e2eb
+      size: 1720
     outs:
     - path: artifact/layout_parser/layoutparser-0.0.0-py3-none-any.whl
       hash: md5
@@ -17,51 +17,51 @@ stages:
     deps:
     - path: artifact/pdf_saver/raw.pdf
       hash: md5
-      md5: 29b59c27219c14d467b1f138ef30fb5e
-      size: 571192
+      md5: d539eed4de62447acabc6094351159a7
+      size: 50300
     - path: src/pdf_to_table/components/pdf_saver.py
       hash: md5
-      md5: c2855c8f5176c8b43a3328a81bfb3234
-      size: 3294
+      md5: 31fa0d7dcc2740f407e312868cfb799d
+      size: 2200
     outs:
     - path: artifact/pdf_saver/images
       hash: md5
-      md5: e350fe1077a43c9b0c8672e13421ec53.dir
-      size: 3146197
-      nfiles: 26
+      md5: 23cd3666ff3ae50b094b05083c032fd5.dir
+      size: 874083
+      nfiles: 20
   table_detector:
     cmd: python src/pdf_to_table/components/table_detector.py
     deps:
     - path: artifact/pdf_saver/images
       hash: md5
-      md5: 1d5e80f6d696a4dff412e455dc57ee48.dir
-      size: 3520812
-      nfiles: 43
+      md5: 23cd3666ff3ae50b094b05083c032fd5.dir
+      size: 874083
+      nfiles: 20
     - path: src/pdf_to_table/components/table_detector.py
       hash: md5
-      md5: 85de558b39d94b7e3bdd9b5056e9ef6e
-      size: 6087
+      md5: f1612735741a424879779c8a0d51a2ae
+      size: 3532
     outs:
     - path: artifact/teble_detector
       hash: md5
-      md5: ae9558d751e93cc4c9023b3fa046d498.dir
-      size: 3709
-      nfiles: 1
+      md5: 80cf18a4d9d3ddfa78c3a2530920a23b.dir
+      size: 1436128
+      nfiles: 20
   text_extractor:
     cmd: python src/pdf_to_table/components/text_extractor.py
     deps:
     - path: artifact/teble_detector
       hash: md5
-      md5: ae9558d751e93cc4c9023b3fa046d498.dir
-      size: 3709
-      nfiles: 1
+      md5: 80cf18a4d9d3ddfa78c3a2530920a23b.dir
+      size: 1436128
+      nfiles: 20
     - path: src/pdf_to_table/components/text_extractor.py
       hash: md5
-      md5: 1f07c63c0b0d6a0694afe56875120304
-      size: 5575
+      md5: df4315b77ff1e7f90358e6c37b21d366
+      size: 5710
     outs:
     - path: artifact/text_extractor
       hash: md5
-      md5: 623b80bc0627de55b1276bdac8f31994.dir
-      size: 5442
-      nfiles: 2
+      md5: cfe6b6a8fcb860e5c09b811a04be8f35.dir
+      size: 35528
+      nfiles: 21

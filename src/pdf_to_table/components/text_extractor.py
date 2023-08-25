@@ -70,6 +70,7 @@ class TextExtractor:
 
                 # Convert the dictionary to a DataFrame and save it as a CSV file
                 df = pd.DataFrame(final_dict)
+                df = df.set_axis(list(range(df.shape[-1])),axis = 1)
                 df.to_csv(os.path.join(csv_dir_name, f"{i}.csv"), index=None)
 
             # Log the path to the final Excel file
