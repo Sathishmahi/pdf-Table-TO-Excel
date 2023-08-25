@@ -2,12 +2,14 @@
 
 ## Summary
 
-led a project aimed at automating the sentiment analysis of product
-reviews on Flipkart using web scraping and state-of-the-art natural
-language processing (NLP) techniques. Leveraging BeautifulSoup (bs4) for
-web scraping, the project extracts customer reviews for a given product.
-These reviews are then analyzed using Hugging Face's pretrained NLP
-models to determine whether the overall sentiment is positive or negative.
+The project aims to develop a tool that can extract tabular data from PDF
+files, perform optical character recognition (OCR) using PaddleOCR to
+convert scanned or image-based text into machine-readable text, and
+then use LayoutParser to detect and structure tabular data. The
+structured data is then exported into an Excel spreadsheet, providing
+users with an efficient way to extract and analyze tables from PDF
+documents.
+
 
 ## Tech Stack
 
